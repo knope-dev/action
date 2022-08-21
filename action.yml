@@ -1,0 +1,26 @@
+name: "Install Knope"
+description: "Installs a specified version of Knope, or the latest if unspecified."
+branding:
+  icon: download
+  color: blue
+inputs:
+  version:
+    description: "Specific version to download, defaults to latest."
+    required: false
+    default: "LATEST"
+runs:
+  using: "composite"
+  steps:
+    - name: "Set version"
+      id: "set_version"
+      shell: bash
+      run: echo "::set-output name=version::$(python ${{ github.action_path }}/get_knope_version.py ${{ inputs.version }})"
+    - name: "Download Knope"
+      id: "download_knope"
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        wget https://github.com/knope-dev/knope/releases/download/${{ steps.set_version.outputs.version }}/knope-x86_64-unknown-linux-musl-${{ steps.set_version.outputs.version }}.tgz
+        tar -xvf knope-x86_64-unknown-linux-musl-${{ steps.set_version.outputs.version }}.tgz
+        cp knope-x86_64-unknown-linux-musl-${{ steps.set_version.outputs.version }}/knope ${{ github.action_path }}
+        echo "${{ github.action_path }}" >> $GITHUB_PATH

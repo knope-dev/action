@@ -1,0 +1,27 @@
+on: push
+
+jobs:
+  install-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Knope
+        uses: knope-dev/action@v1
+      - name: Test Knope
+        run: knope --help
+      - name: Verify no artifacts in path
+        run: git status
+  install-specific-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Knope
+        uses: knope-dev/action@v1
+        with:
+          version: 0.4.3
+      - name: Test Knope
+        run: knope --help
+      - name: Verify no artifacts in path
+        run: git status

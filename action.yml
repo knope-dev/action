@@ -14,7 +14,7 @@ runs:
     - name: "Set version"
       id: "set_version"
       shell: bash
-      run: echo "::set-output name=version::$(python ${{ github.action_path }}/get_knope_version.py ${{ inputs.version }})"
+      run: echo "version=$(python ${{ github.action_path }}/get_knope_version.py ${{ inputs.version }}) >> $GITHUB_OUTPUT"
     - name: "Download Knope"
       id: "download_knope"
       shell: bash

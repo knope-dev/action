@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Knope
-        uses: knope-dev/action@replace-set-output
+        uses: knope-dev/action@v1
       - name: Test Knope
         run: knope --help
       - name: Verify no artifacts in path
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Knope
-        uses: knope-dev/action@replace-set-output
+        uses: knope-dev/action@v1
         with:
           version: 0.4.3
       - name: Test Knope

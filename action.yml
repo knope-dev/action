@@ -8,6 +8,10 @@ inputs:
     description: "Specific version to download, defaults to latest."
     required: false
     default: "LATEST"
+  github-token:
+    description: "A token to pass to the GitHub API (e.g., secrets.GITHUB_TOKEN) to avoid rate limiting"
+    required: false
+    default: ""
 runs:
   using: "composite"
   steps:
@@ -15,6 +19,8 @@ runs:
       id: "set_version"
       shell: bash
       run: echo "version=$(python ${{ github.action_path }}/get_knope_version.py ${{ inputs.version }})" >> $GITHUB_OUTPUT
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
     - name: "Download Knope"
       id: "download_knope"
       shell: bash

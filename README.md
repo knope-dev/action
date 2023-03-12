@@ -55,4 +55,41 @@ jobs:
         run: knope --help
 ```
 
+### Updating with Renovate
+
+If pinning to a specific version (recommended), you may want to have [Renovate](https://github.com/marketplace/renovate) open pull requests when a new version of Knope is available. Here is an example `renovate.json` which will do exactly that for any GitHub workflows starting with "release" and ending in "yml" (e.g., release-dry-run.yml):
+
+```json
+{
+  "extends": [
+    "config:base",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "release.*\\.yml"
+      ],
+      "matchStrings": [
+        "version:\\s*(?<currentValue>.*)"
+      ],
+      "depNameTemplate": "knope",
+      "datasourceTemplate": "crate",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "^knope$"
+      ],
+      "groupName": "knope",
+      "rangeStrategy": "pin"
+    }
+  ]
+}
+```
+
+The `matchStrings` is pretty broad right now because debugging Renovate regex is difficult, so you probably have to narrow it for complex workflows. If you do, please contribute a better match back here!
+
 [Knope]: https://knope-dev.github.io/knope/

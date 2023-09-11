@@ -11,7 +11,7 @@ inputs:
   github-token:
     description: "A token to pass to the GitHub API (e.g., secrets.GITHUB_TOKEN) to avoid rate limiting"
     required: false
-    default: ""
+    default: ${{ github.token }}
 runs:
   using: "composite"
   steps:
@@ -22,4 +22,4 @@ runs:
         ./entrypoint.sh "${{ inputs.version }}"
         echo "${{ github.action_path }}" >> $GITHUB_PATH
       env:
-        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GH_TOKEN: ${{ inputs.github-token }}

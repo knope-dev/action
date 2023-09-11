@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Knope
-        uses: knope-dev/action@v1
+        uses: knope-dev/action@v2.0.0
         with:
-          version: 0.4.3
+          version: 0.10.0
       - name: Use Knope
         run: knope --help
 ```
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Knope
-        uses: knope-dev/action@v1
+        uses: knope-dev/action@v2.0.0
       - name: Use Knope
         run: knope --help
 ```
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Knope
-        uses: knope-dev/action@v1
+        uses: knope-dev/action@v2.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Use Knope

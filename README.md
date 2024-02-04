@@ -92,4 +92,4 @@ If pinning to a specific version (recommended), you may want to have [Renovate](
 
 The `matchStrings` is pretty broad right now because debugging Renovate regex is difficult, so you probably have to narrow it for complex workflows. If you do, please contribute a better match back here!
 
-[Knope]: https://knope-dev.github.io/knope/
+[Knope]: https://knope.tech

@@ -14,6 +14,11 @@ else
   TAG="${VERSION}"
 fi
 
+# If the version is 0.16.2 or greater, the tag is prefixed with knope/
+if [[ ${TAG} == "v0.16.2" || ${TAG} > "v0.16.2" ]]; then
+  TAG="knope/${TAG}"
+fi
+
 # Use the GitHub CLI to download
 
 gh release download "${TAG}" --repo "knope-dev/knope" --pattern "*linux*"

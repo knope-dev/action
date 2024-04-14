@@ -25,6 +25,19 @@ jobs:
         run: knope --help
       - name: Verify no artifacts in path
         run: git status
+  install-monorepo-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Knope
+        uses: ./
+        with:
+          version: 0.16.2
+      - name: Test Knope
+        run: knope --help
+      - name: Verify no artifacts in path
+        run: git status
   pass-a-token:
     runs-on: ubuntu-latest
     steps:

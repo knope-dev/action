@@ -23,7 +23,7 @@ fi
 
 # Use the GitHub CLI to download
 echo "Downloading ${TAG}"
-gh release download "${TAG}" --repo "knope-dev/knope" --pattern "*linux*"
+gh release download "${TAG}" --repo "knope-dev/knope" --pattern "*x86_64*linux*"
 TAR_FILE=$(ls knope-*.tgz)
 tar -xvf "$TAR_FILE"
 rm "$TAR_FILE"

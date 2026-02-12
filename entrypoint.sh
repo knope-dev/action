@@ -18,7 +18,7 @@ if [[ -n "${VERSION}" ]]; then
     TAG="knope/${TAG}"
   fi
 else # If the tag is empty, get the latest release
-  TAG=$(gh release list --json tagName --jq '.[].tagName' --repo "knope-dev/knope"  | grep knope | head -n 1)
+  TAG=$(gh release list --exclude-pre-releases --json tagName --jq '.[].tagName' --repo "knope-dev/knope"  | grep knope | head -n 1)
 fi
 
 # Use the GitHub CLI to download

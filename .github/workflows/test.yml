@@ -20,7 +20,7 @@ jobs:
       - name: Install Knope
         uses: ./
         with:
-          version: 0.10.0
+          version: 0.22.3-rc.0
       - name: Test Knope
         run: knope --help
       - name: Verify no artifacts in path

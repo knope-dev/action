@@ -36,6 +36,7 @@ jobs:
           version: 0.16.2
       - name: Test Knope
         run: knope --help
+        working-directory: /tmp
       - name: Verify no artifacts in path
         run: git status
   pass-a-token:

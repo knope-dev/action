@@ -1,6 +1,6 @@
 [[package.versioned_files]]
 path = "README.md"
-regex = "knope-dev\/action@v(?<version>)"
+regex = "knope-dev/action@v(?<version>\\.+)"
 
 [bot.releases]
 enabled = true

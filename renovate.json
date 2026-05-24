@@ -23,7 +23,8 @@
         "^knope$"
       ],
       "groupName": "knope",
-      "rangeStrategy": "pin"
+      "rangeStrategy": "pin",
+      "automerge": true
     }
   ]
 }

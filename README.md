@@ -16,7 +16,7 @@ jobs:
       - name: Install Knope
         uses: knope-dev/action@v2.1.2
         with:
-          version: 0.23.2
+          version: 0.24.0
       - name: Use Knope
         run: knope --help
 ```
